@@ -1,0 +1,21 @@
+# Template file for 'arc-flatabulous-gtk-theme'
+pkgname=arc-flatabulous-gtk-theme
+version=20180201
+revision=1
+wrksrc="arc-flatabulous-theme-${version}"
+noarch=yes
+short_desc="A modern Linux desktop theme suite"
+build_style=gnu-configure
+maintainer="Nikola Pavlica <pavlica.nikola@gmail.com>"
+license="GPL-3"
+makedepends="gtk+3-devel"
+hostmakedepends="autoconf automake sassc pkg-config"
+depends="gtk+3 gtk-engine-murrine"
+homepage="https://github.com/andreisergiu98/arc-flatabulous-theme"
+distfiles="${homepage}/archive/${version}.tar.gz"
+checksum=37c4a748273ed32cc5ec16fa083dfc4f708374b1a9811b03baf311265f6b5f4d
+
+pre_configure() {
+	./autogen.sh --prefix=/usr
+}
+
